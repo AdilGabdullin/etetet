@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
+use App\Comment;
 use Illuminate\Http\Request;
 use App\User;
-use App\Role;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
+use Faker\Generator as Faker;
 
 class Untitled extends Controller
 {
-    public function test(Request $request)
+    public function test()
     {
-        return view('test');
     }
 }

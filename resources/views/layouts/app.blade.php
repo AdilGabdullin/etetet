@@ -535,7 +535,7 @@
     </style>
 </head>
 <body style="background:#756A56 none no-repeat scroll 0 0;"><a name="top"></a>
-<div id="container" style="background: #ffffff url(upload/YenChi/banner/daimac.jpg) no-repeat scroll 0 0">
+<div id="container" style="background: #ffffff url({{asset('upload/YenChi/banner/daimac.jpg')}}) no-repeat scroll 0 0">
     <div id="header">
         <style>
             a {

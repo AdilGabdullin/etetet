@@ -23,4 +23,6 @@ Route::get('/admin', 'Admin@index')
     ->middleware('auth', 'super-admin')
     ->name('admin');
 
+Route::get('/post/{post_id}', 'Forum@post')->name('post');
+
 Route::get('test', 'Untitled@test');
