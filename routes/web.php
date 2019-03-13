@@ -19,3 +19,6 @@ Route::get('/test', function () {
     $pdo = new PDO('mysql:dbname=etetet;host=localhost', 'root', '');
     dd($pdo);
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
