@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/test', function () {
+    $pdo = new PDO('mysql:dbname=etetet;host=localhost', 'root', '');
+    dd($pdo);
+});
