@@ -580,18 +580,10 @@
         <div id="content">
             <div id="menu1">
                 <ul id="ulMain" style="background:#4D3A1A none no-repeat scroll 0 0;">
-                    <li><a href="{{ route('main') }}">bìa</a></li>
-                    <li><a href="#">đối&nbsp;thoại</a>
+                    <li><a href="{{ route('main') }}">Main</a></li>
+                    <li><a href="{{ route('lfm') }}">File manager</a>
                     </li>
-                    <li><a href="#">HHiếu</a>
-                    </li>
-                    <li><a href="#">tàn&nbsp;phai</a>
-                    </li>
-                    <li><a href="#">thừa&nbsp;giấy</a>
-                    </li>
-                    <li><a href="#">trắng&nbsp;đen</a>
-                    </li>
-                    <li><a href="#">pcl&nbsp;&amp;&nbsp;ngữ...</a>
+                    <li><a href="{{ route('all-files') }}">All files</a>
                     </li>
                 </ul>
             </div>

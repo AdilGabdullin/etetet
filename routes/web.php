@@ -13,11 +13,15 @@
 
 Auth::routes();
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
+Route::get('/not-verified', function () {
+    return view('email.verification');
+});
 
 
 Route::get('/', 'Main@index')->name('main');
+
 Route::get('/home', 'HomeController@index')
-//    ->middleware('verified')
+    ->middleware('auth', 'email-verified')
     ->name('home');
 
 Route::get('/admin', 'Admin@index')
@@ -26,4 +30,12 @@ Route::get('/admin', 'Admin@index')
 
 Route::get('/post/{post_id}', 'Forum@post')->name('post');
 
+
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show')->name('lfm');
+    Route::post('/filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
+});
+
 Route::get('test', 'Untitled@test');
+Route::get('all-files', 'Untitled@allFiles')->name('all-files');
