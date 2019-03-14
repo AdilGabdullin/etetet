@@ -39,7 +39,6 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
     }
 
     /**
@@ -96,9 +95,13 @@ class RegisterController extends Controller
     public function verify($token)
     {
         $user = User::where('email_token', $token)->first();
-        $user->email_verified_at = now();
-        if ($user->save()) {
-            return view('email.confirm', ['user' => $user]);
+        if ($user) {
+            $user->email_verified_at = now();
+            if ($user->save()) {
+                return redirect('home')->with(['status' => 'Your Email is successfully verified']);
+            }
+        } else {
+            return redirect(route('verification'));
         }
     }
 }

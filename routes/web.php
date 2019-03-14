@@ -13,9 +13,9 @@
 
 Auth::routes();
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
-Route::get('/not-verified', function () {
+Route::get('/verification', function () {
     return view('email.verification');
-});
+})->name('verification');
 
 
 Route::get('/', 'Main@index')->name('main');

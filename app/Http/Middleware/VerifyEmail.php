@@ -18,7 +18,7 @@ class VerifyEmail
     public function handle($request, Closure $next)
     {
         if (is_null(Auth::user()->email_verified_at)) {
-            return redirect('/not-verified');
+            return redirect(route('verification'));
         } else {
             return $next($request);
         }

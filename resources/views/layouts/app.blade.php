@@ -581,6 +581,7 @@
             <div id="menu1">
                 <ul id="ulMain" style="background:#4D3A1A none no-repeat scroll 0 0;">
                     <li><a href="{{ route('main') }}">Main</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
                     <li><a href="{{ route('lfm') }}">File manager</a>
                     </li>
                     <li><a href="{{ route('all-files') }}">All files</a>
