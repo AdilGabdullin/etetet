@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('/forum', 'Forum@index')->name('forum');
     Route::get('/post/{post_id}', 'Forum@post')->name('post');
-    Route::post('/forum/comment', 'forum@comment')->name('comment');
+    Route::post('/forum/comment', 'Forum@comment')->name('comment');
 
 });
 
