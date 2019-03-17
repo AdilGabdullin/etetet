@@ -2,13 +2,28 @@
 
 @section('content')
     <div id="subSide1">
-        <img src="{{ asset($post->thumbnail) }}" alt="Image"/>
+        <h2>{{ $post->header }}</h2>
         {{ $post->content }}
-        <div style="padding-left:560px;">
-            <div style="padding-right:35px;">
-                <img style="width: 40px;height: 40px;" src="{{ asset('img/etetet.jpg') }}" alt="Image">
+        <h2>Comments</h2>
+        @foreach($post->comments as $comment)
+            <div>
+                <p>Created at:{{$comment->created_at}}</p>
+                <p>Author:{{$comment->user->name}}</p>
+                {!! $comment->content !!}
+                <hr>
             </div>
-        </div>
+        @endforeach
+        <form action="{{route('comment')}}" method="post">
+            {{ csrf_field() }}
+            <textarea name="content" id="comment-ckeditor" cols="30" rows="10"></textarea>
+            <input type="text" name="post_id" value="{{$post->id}}" hidden>
+            <input type="submit">
+        </form>
+        <script src="{{asset('vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
+        <script>
+            CKEDITOR.replace('comment-ckeditor');
+        </script>
+
     </div>
     <div id="subSide2">
         <div class="credit" style="background:#FFFBF5 none no-repeat scroll 0 0;">

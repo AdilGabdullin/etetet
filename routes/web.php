@@ -28,13 +28,17 @@ Route::get('/admin', 'Admin@index')
     ->middleware('auth', 'super-admin')
     ->name('admin');
 
-Route::get('/post/{post_id}', 'Forum@post')->name('post');
 
 
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show')->name('lfm');
     Route::post('/filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
+
+    Route::post('/forum', 'Forum@index')->name('forum');
+    Route::get('/post/{post_id}', 'Forum@post')->name('post');
+    Route::post('/forum/comment', 'forum@comment')->name('comment');
+
 });
 
 Route::get('test', 'Untitled@test');
